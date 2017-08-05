@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    h1.
+        #{movie.title}
+    p Rating: #{movie.rating}
+    p Watched: #{movie.watched}
+    p ID #{movie._id}
+    p
+      a(href="/movies") Back

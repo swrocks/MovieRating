@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+
+    p
+        a(href='/movies/new') Add A New Movie Rating
+
+    ul
+        - each movie, i in movies
+            li
+                p Movie Title:
+                  b
+                    = movie.title
+                p Rating:
+                  b
+                    = movie.rating
+                p Watched:
+                  b
+                    = movie.watched
+                p ID:
+                  = movie._id
+                form(action='/movies/#{movie._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+                p
+                    a(href='/movies/#{movie._id}/edit') Edit
+                p
+                    a(href='/movies/#{movie._id}') Detail
+                hr

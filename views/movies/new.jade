@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddBlob(name="addmovie",method="post",action="/movies")
+		p Title:
+			input#inputTitle(type="text", placeholder="ex. Hangover", name="title")
+		p Rating:
+			input#inputRating(type="number", placeholder="1-5", name="rating")
+		p Watched?:
+			input#inputWatched(type="checkbox", name="watched")
+		p
+			button#btnSubmit(type="submit") Add Movie
+		p
+			a(href="/movies") Back
